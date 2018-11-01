@@ -1,0 +1,5 @@
+<view>
+
+<button open-type="getUserInfo" bindgetuserinfo="onGetUserInfo" >登录</button>
+
+</view>

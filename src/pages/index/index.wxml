@@ -1,0 +1,46 @@
+<view class="swiper-view">
+<swiper indicator-dots="{{true}}"
+  autoplay="{{true}}" interval="{{interval}}" duration="{{duration}}">
+  <block wx:for="{{slides}}" wx:key="aabb">
+    <swiper-item>
+      <image mode='aspectFill' src="{{item.src}}" class="slide-image"/>
+    </swiper-item>
+  </block>
+</swiper>
+</view>
+
+<view class="nav-view">
+  <view class="flex-wrp">
+  <view  data-id=""class="flex-item" hover-class='list-hover' bindtap='categoryClick'>
+    全部
+    </view>
+    <view wx:for="{{categories}}" wx:key="item" data-id="{{item.id}}"class="flex-item" hover-class='list-hover' bindtap='categoryClick'>
+    {{item.title}}
+    </view>
+  </view>
+</view>
+
+
+ <navigator url='../detail/detail?id={{item.id}}' wx:for="{{articles}}"  wx:key="article">
+<view class="page-list" hover-class='list-hover' >
+  <view class="list-image">
+    <image style='' mode='aspectFill' wx:if="{{item.thumbnail}}" src='{{item.thumbnail}}'></image>
+     <image style='' mode='aspectFill' wx:elif="{{item.firstImage}}" src='{{item.firstImage}}'></image>
+      <image style='' mode='aspectFill' wx:else src='http://www.jpress.io/templates/JPressPortal/img/product-k.jpg'></image>
+  </view>
+  <view class="list-box">
+    <view class='list-title'>{{item.title}}</view>
+    <view class='list-icon'>
+      <text class='iconfont icon-icon_yulan'> {{item.viewCount}}</text>
+      <text class='iconfont icon-xiaoxi'> {{item.commentCount}}</text>
+    </view>
+  </view>
+ 
+</view>
+
+ </navigator>
+
+
+<view class='footer'>
+  <view class='footer-copyright'>{{copyright}}</view>
+</view>

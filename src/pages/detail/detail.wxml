@@ -1,0 +1,75 @@
+<!--logs.wxml-->
+<view class='details-content'>
+  <view class='details-title'>
+  {{article.title}}
+  </view>
+  <view class='title-logs'>
+    <text>{{article.created}}</text>
+    <text class='theme-color'>未来不夜城</text>
+  </view>
+  <view class='details-main'>
+  <rich-text nodes="{{article.content}}"></rich-text>
+  </view>
+  
+
+
+  <view class='published'>
+   <form bindsubmit="postComment">
+    <view class='comment-title'>发表评论</view>
+    <view class='publishedbox'>
+    <textarea placeholder="说出你想说的..." name="content" value='{{commentContent}}'></textarea>
+    </view>
+    <view class='buttonbox'>
+    <button form-type="submit" hover-class="other-button-hover">
+    发送</button>
+    </view>
+    </form>
+  </view>
+
+
+  <view class='comment-title'>最新评论</view>
+
+
+  <view class='comment-list' wx:for="{{comments}}" wx:key="comment">
+    <view class='headportrait'>
+    <image src='{{item.user.avatar}}'></image>
+    </view>
+    <view class='list-main'>
+      <view class='comment-tags'>
+        <view class='comment-label'>
+          <text class='author'>{{item.author}}</text>
+          <text class="time">{{item.created}}</text>
+        </view>
+        <view class='reply'>回复</view>
+      </view>
+      <view class='main'>{{item.content}}</view>
+    </view>
+  </view>
+
+
+    <view class='related'>
+   <view class='comment-title'>相关文章</view>
+     
+    <view wx:for="{{relatedArticles}}" wx:key="article" class="page-list" hover-class='list-hover'>
+      <view class="list-image">
+        <image style='' mode='aspectFill' src='http://img06.tooopen.com/images/20160818/tooopen_sy_175866434296.jpg'></image>
+      </view>
+      <view class="list-box">
+        <view class='list-title'>{{item.title}}</view>
+        <view class='list-icon'>
+          <text class='iconfont icon-icon_yulan'> 124</text>
+          <text class='iconfont icon-xiaoxi'> 12</text>
+        </view>
+      </view>
+    </view>
+    
+    </view>
+ 
+</view>
+
+
+<view class='footer'>
+  <view class='footer-link'>联系我们</view>
+  <view class='footer-copyright'>Copyright © 2008-2013 Designed by Jean.</view>
+</view>
+
